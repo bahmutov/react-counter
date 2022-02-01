@@ -61,6 +61,7 @@ it('calls the components method', () => {
     console.log(fiber)
     const compFiber = GetCompFiber(fiber)
     console.log('compFiber', compFiber)
+    cy.log('calling **double()**')
     compFiber.stateNode.double()
   })
 
