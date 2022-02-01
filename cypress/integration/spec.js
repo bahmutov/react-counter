@@ -51,7 +51,7 @@ it('sets state', () => {
   cy.contains('[data-cy=count]', '10').should('be.visible')
 })
 
-it.only('calls the components method', () => {
+it('calls the components method', () => {
   cy.visit('/')
   cy.waitForReact(1000, '#root')
   cy.get('[data-cy=add]').click().click().click()
