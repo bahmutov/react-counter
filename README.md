@@ -6,7 +6,7 @@ Access the internal state of React components from Cypress E2E tests
 
 ![A test screenshot](./images/test.png)
 
-See [spec.js](./cypress/integration/spec.js)
+Read the blog post [Access React Components From Cypress E2E Tests](https://glebbahmutov.com/blog/react-state-from-e2e-tests/). See [spec.js](./cypress/integration/spec.js) and other files in the [cypress/integration](./cypress/integration) folder.
 
 ## Install
 
