@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import 'cypress-react-selector'
+import { getReactFiber, getComponent } from './utils'
 
 it('works', () => {
   cy.visit('/')
@@ -12,30 +13,6 @@ it('works', () => {
   cy.getReact('Example').getProps().should('have.property', 'initialCount', 0)
 })
 
-// https://stackoverflow.com/questions/29321742/react-getting-a-component-from-a-dom-element-for-debugging/39165137#39165137
-function getReactFiber(el) {
-  const key = Object.keys(el).find((key) => {
-    return (
-      key.startsWith('__reactFiber$') || // react 17+
-      key.startsWith('__reactInternalInstance$')
-    ) // react <17
-  })
-  if (!key) {
-    return
-  }
-  return el[key]
-}
-
-// react 16+
-const GetCompFiber = (fiber) => {
-  //return fiber._debugOwner; // this also works, but is __DEV__ only
-  let parentFiber = fiber.return
-  while (typeof parentFiber.type == 'string') {
-    parentFiber = parentFiber.return
-  }
-  return parentFiber
-}
-
 it('sets state', () => {
   cy.visit('/')
   cy.waitForReact(1000, '#root')
@@ -43,7 +20,7 @@ it('sets state', () => {
     console.log(e)
     const fiber = getReactFiber(e[0].node)
     console.log(fiber)
-    const compFiber = GetCompFiber(fiber)
+    const compFiber = getComponent(fiber)
     console.log('compFiber', compFiber)
     compFiber.stateNode.setState({ count: 10 })
   })
@@ -59,7 +36,7 @@ it('calls the components method', () => {
     console.log(e)
     const fiber = getReactFiber(e[0].node)
     console.log(fiber)
-    const compFiber = GetCompFiber(fiber)
+    const compFiber = getComponent(fiber)
     console.log('compFiber', compFiber)
     cy.log('calling **double()**')
     compFiber.stateNode.double()
