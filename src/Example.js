@@ -5,8 +5,13 @@ export class Example extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0,
+      count: props.initialCount || 0,
     }
+  }
+
+  double() {
+    console.log('doubling the current value', this.state.count)
+    this.setState({ count: this.state.count * 2 })
   }
 
   render() {
@@ -21,6 +26,10 @@ export class Example extends React.Component {
           onClick={() => this.setState({ count: this.state.count + 1 })}
         >
           Click me
+        </button>
+
+        <button className="full" data-cy="double" onClick={() => this.double()}>
+          Double me
         </button>
       </div>
     )
