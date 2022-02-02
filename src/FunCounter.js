@@ -3,19 +3,22 @@ import './fun-counter.css'
 
 export default function FunCounter({ initialCount }) {
   const [count, setCount] = useState(initialCount)
+  const [doubledCount, setDoubleCount] = useState(initialCount * 2)
 
   const double = () => setCount(count * 2)
+
+  const increment = () => {
+    setCount(count + 1)
+    setDoubleCount(doubledCount + 2)
+  }
 
   return (
     <div className="fun-counter" data-cy="fun-counter">
       <p className="full">
-        Click count <span data-cy="count">{count}</span>
+        Click count <span data-cy="count">{count}</span>, doubled{' '}
+        <span data-cy="doubled">{doubledCount}</span>
       </p>
-      <button
-        className="full"
-        data-cy="add"
-        onClick={() => setCount(count + 1)}
-      >
+      <button className="full" data-cy="add" onClick={increment}>
         Click me
       </button>
 

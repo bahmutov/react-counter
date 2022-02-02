@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { getReactFiber, getComponent } from './utils'
+import { getReactFiber, getComponent } from '../support/utils'
 
 it('calls Example double()', () => {
   cy.visit('/')

@@ -20,6 +20,10 @@ Launch the server and open Cypress test runner
 $ npm run dev
 ```
 
+## Specs
+
+- [fun-component.js](./cypress/integration/fun-component.js) plays with the functional counter from [src/FunCounter.js](./src/FunCounter.js)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2022
