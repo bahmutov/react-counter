@@ -25,7 +25,7 @@ it('checks and modifies state', () => {
   cy.contains('.Example [data-cy=count]', '-99')
 })
 
-it.only('spies on setState', () => {
+it('spies on setState', () => {
   cy.visit('/')
   cy.contains('.Example [data-cy=count]', '0')
   cy.get('.Example')
