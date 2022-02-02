@@ -24,3 +24,19 @@ it('checks and modifies state', () => {
   cy.get('@example').getComponent().invoke('setState', { count: -99 })
   cy.contains('.Example [data-cy=count]', '-99')
 })
+
+it.only('spies on setState', () => {
+  cy.visit('/')
+  cy.contains('.Example [data-cy=count]', '0')
+  cy.get('.Example')
+    .getComponent()
+    .then((component) => {
+      cy.spy(component, 'setState').as('setState')
+    })
+  cy.get('.Example [data-cy=add]').click()
+  cy.get('@setState')
+    .should('be.calledOnceWithExactly', { count: 1 })
+    .invoke('resetHistory')
+  cy.get('.Example [data-cy=add]').click()
+  cy.get('@setState').should('be.calledOnceWithExactly', { count: 2 })
+})

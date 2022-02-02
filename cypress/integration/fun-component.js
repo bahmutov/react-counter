@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-it('can access functional component (experiment)', () => {
+it('can access functional component (experimental)', () => {
   cy.visit('/')
 
   cy.log('**initial state**')
@@ -50,4 +50,11 @@ it('can access functional component (experiment)', () => {
     .getComponent()
     .its('state')
     .should('deep.equal', [21, 24])
+})
+
+it.skip('can get the hook variable name (really really experimental)', () => {
+  cy.visit('/')
+
+  cy.log('**initial state**')
+  cy.get('.fun-counter').getComponent().then(console.log)
 })
