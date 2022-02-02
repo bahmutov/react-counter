@@ -18,7 +18,7 @@ export class Example extends React.Component {
     return (
       <div className="Example">
         <p className="full">
-          You clicked <span data-cy="count">{this.state.count}</span> times
+          Click count is <span data-cy="count">{this.state.count}</span>
         </p>
         <button
           className="full"
