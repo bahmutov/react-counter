@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "cypress": "^9.3.1",
+    "cypress-react-app-actions": "^1.0.1",
     "cypress-react-selector": "^2.3.15",
     "prettier": "^2.5.1",
     "serve": "^13.0.2",
