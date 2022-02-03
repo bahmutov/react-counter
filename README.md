@@ -22,6 +22,8 @@ $ npm run dev
 
 ## Specs
 
+Uses [cypress-react-app-actions](https://github.com/bahmutov/react-app-actions)
+
 - [fun-component.js](./cypress/integration/fun-component.js) plays with the functional counter from [src/FunCounter.js](./src/FunCounter.js)
 - [click-state.js](./cypress/integration/click-state.js) spies on the `setState` method, see video [A Little Taste Of React App Actions](https://youtu.be/7tzstwfuA6g)
 
